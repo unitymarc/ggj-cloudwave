@@ -402,3 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a484fb151c8446478bca1bd35285636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lift: 20
+  drag: 20
+  forward: 20
+  backward: 20

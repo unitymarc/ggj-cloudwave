@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BalloonInputControl : MonoBehaviour {
 
+    public float lift;
+    public float drag;
+    public float forward;
+    public float backward;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,30 +19,30 @@ public class BalloonInputControl : MonoBehaviour {
         if (Input.GetAxis ("Lift") > 0f) {
             Lift ();
         }
-        if (Input.GetAxis ("Lift") < 0f) {
+        if (Input.GetAxis ("Drag") > 0f) {
             Drag ();
         }
-        if (Input.GetAxis ("X-Axis") > 0f) {
+        if (Input.GetAxis ("Accelerate") > 0f) {
             Forward ();
         }
-        if (Input.GetAxis ("X-Axis") < 0f) {
+        if (Input.GetAxis ("DeAccelerate") > 0f) {
             Backward ();
         }
     }
 
     void Lift() {
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * 20f);
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.up * lift);
     }
 
     void Drag() {
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.down * 10f);
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.down * drag);
     }
 
     void Forward() {
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.right * 20f);
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.right * forward);
     }
 
     void Backward() {
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.left * 10f);
+        GetComponent<Rigidbody2D> ().AddForce (Vector2.left * backward);
     }
 }
