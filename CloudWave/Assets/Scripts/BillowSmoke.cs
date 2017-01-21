@@ -13,13 +13,13 @@ public class BillowSmoke : MonoBehaviour {
 		StartCoroutine("StartPoison");
 	}
 
-	IEnumerator StartPoison() {
+	IEnumerator StartPoison () {
 		yield return new WaitForSeconds(billowTickRate);
 		Billow();
 		StartCoroutine("StartPoison");
 	}
 
-	void Billow() {
+	void Billow () {
 		Instantiate(poisonCloud, poisonSpawnPoint.position, Quaternion.identity);
 	}
 }
