@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
       propertyPath: orthographic size
-      value: 5.52
+      value: 6.62
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
       propertyPath: m_FollowTilt
@@ -582,6 +582,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1951556247
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.580768
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.9830785
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402589401319720, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539718899211352, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5fcca87ed9c261b4ba9401f3ac4d464d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &2002378486
 Prefab:
   m_ObjectHideFlags: 0
@@ -625,7 +671,8 @@ Prefab:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114786373903585778, guid: f4a8004afe8344d57be3cad5011f19ee, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f4a8004afe8344d57be3cad5011f19ee, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2065513729 stripped
