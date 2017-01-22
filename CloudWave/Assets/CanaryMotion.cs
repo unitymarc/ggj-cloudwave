@@ -18,6 +18,7 @@ public class CanaryMotion : MonoBehaviour {
 
     public void Kill()
     {
+        GetComponent<Animator> ().SetTrigger ("Dead");
         audio.Play ();
         GetComponent<Rigidbody2D> ().gravityScale = 1f;
     }

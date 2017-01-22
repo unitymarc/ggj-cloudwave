@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a9a95c94181db4c15bc6398e1d5540f1
-timeCreated: 1485112350
+timeCreated: 1485116423
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -96,7 +96,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 1024
         width: 682
         height: 512
       alignment: 0
@@ -106,6 +106,19 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: CanarySpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 682
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CanarySpriteSheet_2
       rect:
         serializedVersion: 2
         x: 0
