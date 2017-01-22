@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 198316746856425736}
-  speedMod: 1.25
+  speedMod: 10
 --- !u!198 &198316746856425736
 ParticleSystem:
   m_ObjectHideFlags: 1
