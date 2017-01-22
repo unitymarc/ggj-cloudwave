@@ -7,9 +7,19 @@ public class ShipHealthController : MonoBehaviour {
 	[SerializeField]
 	private int numberOfCanaries = 3;
 	public GameObject canaryPrefab;
-	private List<CanaryMotion> canaries = new List<CanaryMotion>();
+    [SerializeField]
+    private List<CanaryMotion> canaries = new List<CanaryMotion>();
 
-	void Awake()
+    [SerializeField]
+    private float xOffsetMin = -6f;
+    [SerializeField]
+    private float xOffsetMax = -4f;
+    [SerializeField]
+    private float yOffsetMin = -2f;
+    [SerializeField]
+    private float yOffsetMax = 2f;
+
+    void Awake()
 	{
 		for (int i = 0; i < numberOfCanaries; i++)
 		{
@@ -17,9 +27,23 @@ public class ShipHealthController : MonoBehaviour {
 		}
 	}
 
+	public void ResetCanaries()
+	{
+		if (canaries.Count > numberOfCanaries)
+		{
+			int diff = canaries.Count - numberOfCanaries;
+			for (int i = 0; i < diff; i++)
+			{
+				var canaryToKill = canaries[0];
+				canaries.Remove(canaryToKill);
+				GameObject.Destroy(canaryToKill.gameObject);
+			}
+		}
+	}
+
 	private void SpawnCanary()
 	{
-		Vector3 offset = new Vector3(UnityEngine.Random.Range(-6f, -4f), UnityEngine.Random.Range(-2f, 2f));
+		Vector3 offset = new Vector3(UnityEngine.Random.Range(xOffsetMin, xOffsetMax), UnityEngine.Random.Range(yOffsetMin, yOffsetMax));
 		var canary = (Instantiate(canaryPrefab, offset, Quaternion.identity) as GameObject).GetComponent<CanaryMotion>();
 		canary.follow = transform;
 		canary.offset = offset;
@@ -34,10 +58,14 @@ public class ShipHealthController : MonoBehaviour {
 	}
 
 	public void RemoveCanary () {
-		numberOfCanaries--;
-		KillCanary();
-		if(numberOfCanaries <= 0) {
-			InstaKill();
+		if (numberOfCanaries > 0)
+		{
+			numberOfCanaries--;
+			KillCanary();
+			if (numberOfCanaries <= 0)
+			{
+				InstaKill();
+			}
 		}
 	}
 
@@ -49,6 +77,10 @@ public class ShipHealthController : MonoBehaviour {
 	public void SetCanaries(int canaries)
 	{
 		numberOfCanaries = canaries;
+		for (int i = 0; i < numberOfCanaries; i++)
+		{
+			SpawnCanary();
+		}
 	}
 
 	public void AddCanary () {
@@ -66,14 +98,12 @@ public class ShipHealthController : MonoBehaviour {
 	}
 
 	public void InstaKill () {
-		GameManager.instance.PlayerDied();
-		if (numberOfCanaries > 0)
+		for (int i = 0; i < canaries.Count; i++)
 		{
-			for (int i = 0; i < canaries.Count; i++)
-			{
-				KillCanary();
-			}
+			KillCanary();
 		}
+		GameManager.instance.PlayerDied();
+
 		//GameObject.Destroy(gameObject);
 	}
 }

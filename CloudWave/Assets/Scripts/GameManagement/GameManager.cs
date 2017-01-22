@@ -44,8 +44,9 @@ public class GameManager : MonoBehaviour {
 	public void PlayerDied()
 	{
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+		player.transform.position = new Vector3(checkpoints[currentCheckpoint].transform.position.x, 0f, 0f);
 		player.GetComponent<ShipHealthController>().SetCanaries(playerCanariesAtCheckpoint);
 		player.GetComponent<BalloonInputControl>().SetFuel(playerFuelAtCheckpoint);
-		player.transform.position = new Vector3(checkpoints[currentCheckpoint].transform.position.x, 0f, 0f);
+		player.GetComponent<ShipHealthController>().ResetCanaries();
 	}
 }
