@@ -16,6 +16,8 @@ public class SmokeCollision : MonoBehaviour
 	[SerializeField]
 	private int poisonDamagePerTick = 1;
 
+	private bool isPoisoning = false;
+
     void OnEnable()
     {
         ps = GetComponent<ParticleSystem>();
@@ -34,9 +36,14 @@ public class SmokeCollision : MonoBehaviour
 
 		if (numInside > 0)
 		{
-			StartCoroutine("StartPoison");
+			if (!isPoisoning)
+			{
+				StartCoroutine("StartPoison");
+				isPoisoning = true;
+			}
 		}
 		else {
+			isPoisoning = false;
 			StopCoroutine("StartPoison");
 		}
     }
