@@ -163,8 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9e7e983166442b6974fb0d2208a461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambientSound: {fileID: 0}
   endSound: {fileID: 82775211467150564}
   landingSpot: {x: 0, y: 0.79, z: 0}
+  ambientDropoff: 0.95
+  endScreenAnimation: {fileID: 0}
 --- !u!212 &212121004098009406
 SpriteRenderer:
   m_ObjectHideFlags: 1
