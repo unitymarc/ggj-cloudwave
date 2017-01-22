@@ -12,6 +12,8 @@ public class BalloonInputControl : MonoBehaviour {
     public float drag;
     public float forward;
     public float backward;
+    public float maxspeed = 1;
+    public float dragValue = 1;
 
 
     [SerializeField]
@@ -54,14 +56,21 @@ public class BalloonInputControl : MonoBehaviour {
 
     void FixedUpdate()
     {
+        
         LerpSounds ();
+        Vector2 v2 = GetComponent<Rigidbody2D>().velocity;
+        v2.x *= dragValue;
+        GetComponent<Rigidbody2D>().velocity = v2;
+
+
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		if (musicFuel > 0)
 		{
-			if (Input.GetAxis("Lift") > 0f)
+			if (Input.GetAxis("Lift") > 0f && Input.GetAxis("Lift") < 10f)
 			{
 				Lift();
 			}
@@ -75,7 +84,7 @@ public class BalloonInputControl : MonoBehaviour {
 			else {
 				NoDrag();
 			}
-			if (Input.GetAxis("Accelerate") > 0f)
+			if (Input.GetAxis("Accelerate") > 0f && Input.GetAxis("Accelerate") < 2f)
 			{
 				Forward();
 			}
@@ -132,7 +141,15 @@ public class BalloonInputControl : MonoBehaviour {
 		{
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.right * forward);
+       
+      var currentVelocity =GetComponent<Rigidbody2D>().velocity;
+
+        if (currentVelocity.x < maxspeed)
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * forward);
+        }
+        else
+            currentVelocity.x = maxspeed;
         StartFX (ForwardSFX, ForwardParticles);
     }
 
@@ -145,7 +162,14 @@ public class BalloonInputControl : MonoBehaviour {
 		{
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
-        GetComponent<Rigidbody2D> ().AddForce (Vector2.left * backward);
+        var currentVelocity = GetComponent<Rigidbody2D>().velocity;
+
+        if (currentVelocity.x > -maxspeed)
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * backward);
+        }
+        else
+            currentVelocity.x = -maxspeed; 
         StartFX (BackwardSFX, BackwardParticles);
     }
 

@@ -20,12 +20,17 @@ public class TestParticleCollision : MonoBehaviour
             return;
         }
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        if(other.transform.tag == "Player")
+        {
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
 
-        if (numCollisionEvents > 0) {
-            Vector3 pos = collisionEvents[0].intersection;
-            Vector3 force = collisionEvents[0].velocity * speedMod;
-            rb.AddForce(force);
+            if (numCollisionEvents > 0)
+            {
+                Vector3 pos = collisionEvents[0].intersection;
+                Vector3 force = collisionEvents[0].velocity * speedMod;
+                rb.AddForce(force);
+            }
         }
+        
     }
 }
