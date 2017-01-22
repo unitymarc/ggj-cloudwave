@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198229843437606338}
   - component: {fileID: 199735745531594596}
   m_Layer: 0
-  m_Name: InkBlotClouds
+  m_Name: InkBlotPoisonCeilingClouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
