@@ -7,9 +7,19 @@ public class ShipHealthController : MonoBehaviour {
 	[SerializeField]
 	private int numberOfCanaries = 3;
 	public GameObject canaryPrefab;
-	private List<CanaryMotion> canaries = new List<CanaryMotion>();
+    [SerializeField]
+    private List<CanaryMotion> canaries = new List<CanaryMotion>();
 
-	void Awake()
+    [SerializeField]
+    private float xOffsetMin = -6f;
+    [SerializeField]
+    private float xOffsetMax = -4f;
+    [SerializeField]
+    private float yOffsetMin = -2f;
+    [SerializeField]
+    private float yOffsetMax = 2f;
+
+    void Awake()
 	{
 		for (int i = 0; i < numberOfCanaries; i++)
 		{
@@ -19,7 +29,7 @@ public class ShipHealthController : MonoBehaviour {
 
 	private void SpawnCanary()
 	{
-		Vector3 offset = new Vector3(UnityEngine.Random.Range(-6f, -4f), UnityEngine.Random.Range(-2f, 2f));
+		Vector3 offset = new Vector3(UnityEngine.Random.Range(xOffsetMin, xOffsetMax), UnityEngine.Random.Range(yOffsetMin, yOffsetMax));
 		var canary = (Instantiate(canaryPrefab, offset, Quaternion.identity) as GameObject).GetComponent<CanaryMotion>();
 		canary.follow = transform;
 		canary.offset = offset;
