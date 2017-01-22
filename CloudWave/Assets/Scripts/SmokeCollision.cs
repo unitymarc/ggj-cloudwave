@@ -43,6 +43,7 @@ public class SmokeCollision : MonoBehaviour
 			}
 		}
 		else {
+			isPoisoning = false;
 			StopCoroutine("StartPoison");
 		}
     }
@@ -50,9 +51,8 @@ public class SmokeCollision : MonoBehaviour
 
 	IEnumerator StartPoison()
 	{
-		yield return new WaitForSeconds(poisonTickRate / 2);
 		ps.trigger.GetCollider(0).gameObject.GetComponent<ShipHealthController>().RemoveCanary();
-		yield return new WaitForSeconds(poisonTickRate / 2);
+		yield return new WaitForSeconds(poisonTickRate);
 		StartCoroutine("StartPoison");
 	}
 
