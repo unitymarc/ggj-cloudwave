@@ -27,24 +27,5 @@ public class TestParticleCollision : MonoBehaviour
             Vector3 force = collisionEvents[0].velocity * speedMod;
             rb.AddForce(force);
         }
-
-
-
-
-//        int i = 0;
-//
-//
-//
-//
-//        while (i < numCollisionEvents)
-//        {
-//            if (rb)
-//            {
-//                Vector3 pos = collisionEvents[i].intersection;
-//                Vector3 force = collisionEvents[i].velocity * speedMod;
-//                rb.AddForce(force);
-//            }
-//            i++;
-//        }
     }
 }
