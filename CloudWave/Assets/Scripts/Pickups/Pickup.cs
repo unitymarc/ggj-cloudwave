@@ -17,6 +17,6 @@ public class Pickup : MonoBehaviour {
 
 	protected virtual void Consume(Collider2D col)
 	{
-
+		GameObject.Destroy(this.gameObject);
 	}
 }

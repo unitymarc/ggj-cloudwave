@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4796669807528600}
   - component: {fileID: 212025090991909624}
   - component: {fileID: 61561234183680160}
+  - component: {fileID: 114955730853646144}
   m_Layer: 0
   m_Name: CanaryPickup
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802652330800200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.264, y: -0.31, z: 0}
+  m_LocalPosition: {x: -3.59, y: 0.89, z: 0}
   m_LocalScale: {x: 0.31490576, y: 0.31490576, z: 0.31490576}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,6 +56,18 @@ BoxCollider2D:
   m_Offset: {x: -0.46629098, y: -0.13988647}
   serializedVersion: 2
   m_Size: {x: 5.8874183, y: 4.5293636}
+--- !u!114 &114955730853646144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802652330800200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5d810efd51c4a81b1bab3b35a8a4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
 --- !u!212 &212025090991909624
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -178,4 +178,9 @@ public class BalloonInputControl : MonoBehaviour {
 	{
 		musicFuel--;
 	}
+
+	public void AddFuel(int amountToAdd)
+	{
+		musicFuel += amountToAdd;
+	}
 }
