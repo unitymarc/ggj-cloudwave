@@ -11,7 +11,7 @@ public class AdvanceComicAnimation : MonoBehaviour {
     public AudioSource music;
 
     bool buttonCanShow = true;
-    public bool fading = false;
+    bool fading = false;
 
     void Update()
     {
