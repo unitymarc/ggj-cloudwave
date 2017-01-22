@@ -18,6 +18,11 @@ public class ShipHealthController : MonoBehaviour {
 		numberOfCanaries++;
 	}
 
+	public void AddCanary(int amount)
+	{
+		numberOfCanaries += amount;
+	}
+
 	public void InstaKill () {
 		GameObject.Destroy(gameObject);
 	}

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 212274108527005246}
   - component: {fileID: 60322010456082940}
   m_Layer: 0
-  m_Name: Smoke Stacks
+  m_Name: SmokeStacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
