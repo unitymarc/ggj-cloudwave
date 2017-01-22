@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4336238518427214}
   - component: {fileID: 212153232416989456}
   - component: {fileID: 114790299351752704}
-  - component: {fileID: 60016987516411192}
+  - component: {fileID: 60181387720825318}
   m_Layer: 0
   m_Name: IBeams
   m_TagString: Untagged
@@ -36,13 +36,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1534357560077530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.13, z: 0}
+  m_LocalPosition: {x: 12.493633, y: -3.2399554, z: 0}
   m_LocalScale: {x: 0.5572186, y: 0.5572186, z: 0.5572186}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60016987516411192
+--- !u!60 &60181387720825318
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
