@@ -14,6 +14,16 @@ public class ShipHealthController : MonoBehaviour {
 		}
 	}
 
+	public int GetCanaries()
+	{
+		return numberOfCanaries;
+	}
+
+	public void SetCanaries(int canaries)
+	{
+		numberOfCanaries = canaries;
+	}
+
 	public void AddCanary () {
 		numberOfCanaries++;
 	}
@@ -24,6 +34,7 @@ public class ShipHealthController : MonoBehaviour {
 	}
 
 	public void InstaKill () {
-		GameObject.Destroy(gameObject);
+		GameManager.instance.PlayerDied();
+		//GameObject.Destroy(gameObject);
 	}
 }

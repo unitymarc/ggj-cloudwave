@@ -8,12 +8,24 @@ public class GameManager : MonoBehaviour {
 	private int currentCheckpoint = 0;
 	public static GameManager instance;
 
+	private GameObject player;
+	private int playerCanariesAtCheckpoint = 3;
+	private int playerFuelAtCheckpoint = 10;
+
 	void Awake()
 	{
 		if (instance == null)
 		{
 			instance = this;
 		}
+		player = GameObject.FindGameObjectWithTag("Player");
+		UpdatePlayerVals();
+	}
+
+	private void UpdatePlayerVals()
+	{
+		playerCanariesAtCheckpoint = player.GetComponent<ShipHealthController>().GetCanaries();
+		playerFuelAtCheckpoint = player.GetComponent<BalloonInputControl>().GetFuel();
 	}
 
 	public int RegisterCheckpoint(Checkpoint checkpointToReg)
@@ -26,5 +38,13 @@ public class GameManager : MonoBehaviour {
 	public void PlayerReachedNewCheckpoint(int checkpointId)
 	{
 		currentCheckpoint = checkpointId;
+		UpdatePlayerVals();
+	}
+
+	public void PlayerDied()
+	{
+		player.GetComponent<ShipHealthController>().SetCanaries(playerCanariesAtCheckpoint);
+		player.GetComponent<BalloonInputControl>().SetFuel(playerFuelAtCheckpoint);
+		player.transform.position = new Vector3(checkpoints[currentCheckpoint].transform.position.x, 0f, 0f);
 	}
 }

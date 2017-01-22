@@ -34,6 +34,16 @@ public class BalloonInputControl : MonoBehaviour {
 
     Dictionary<AudioSource, float> sfxDests = new Dictionary<AudioSource, float>();
 
+	public int GetFuel()
+	{
+		return musicFuel;
+	}
+
+	public void SetFuel(int fuel)
+	{
+		musicFuel = fuel;
+	}
+
 	// Use this for initialization
 	void Start () {
         sfxDests [LiftSFX] = 0f;
