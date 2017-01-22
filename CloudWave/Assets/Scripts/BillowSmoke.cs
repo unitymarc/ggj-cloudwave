@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BillowSmoke : MonoBehaviour {
-	[SerializeField]
+	
+	/*     Not needed since it's not using particles
+	 * 
+    [SerializeField]
 	private float billowTickRate = 1.0f;
 
 	public GameObject poisonCloud;
@@ -21,5 +24,5 @@ public class BillowSmoke : MonoBehaviour {
 
 	void Billow () {
 		Instantiate(poisonCloud, poisonSpawnPoint.position, Quaternion.identity);
-	}
+	}*/
 }

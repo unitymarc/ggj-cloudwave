@@ -4,10 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoisonScript : MonoBehaviour {
+	public ParticleSystem part;
+	public List<ParticleCollisionEvent> collisionEvents;
 	[SerializeField]
 	private float poisonTickRate = 1.0f;
 	[SerializeField]
 	private int poisonDamagePerTick = 1;
+
+	void Start()
+	{
+		part = GetComponent<ParticleSystem>();
+		collisionEvents = new List<ParticleCollisionEvent>();
+	}
+
+	void OnParticleCollision(GameObject other)
+	{
+		if (part == null || collisionEvents == null)
+		{
+			return;
+		}
+		if (other.transform.tag == "Player")
+		{
+			int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+
+			if (numCollisionEvents > 0)
+			{
+
+			}
+		}
+	}
+
+	/*     Not needed since it's not using particles
+	 * 
+
 
 	private ShipHealthController player;
 
@@ -35,5 +64,5 @@ public class PoisonScript : MonoBehaviour {
 		if(player != null) {
 			StartCoroutine("StartPoison");
 		}
-	}
+	}*/
 }
