@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdvanceComicAnimation : MonoBehaviour {
 
@@ -16,6 +17,11 @@ public class AdvanceComicAnimation : MonoBehaviour {
 
     void Update()
     {
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SceneManager.LoadScene(1);
+		}
+
         AnimatorStateInfo graphicStateInfo = graphicNovelAnimator.GetCurrentAnimatorStateInfo (0);
 
         if (!graphicStateInfo.IsName ("GraphicNovelWait") && 
@@ -29,8 +35,8 @@ public class AdvanceComicAnimation : MonoBehaviour {
         if (fading) {
             music.volume *= .97f;
             if (music.volume <= .001f) {
-                Debug.Log ("TODO: go to game");
-            }
+				SceneManager.LoadScene(1);
+			}
         } else if (fadeStateInfo.IsName ("FadeScreen") && graphicStateInfo.normalizedTime > 1) {
             //trigger transition to next scene
             fading = true;
