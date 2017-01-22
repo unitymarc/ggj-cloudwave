@@ -23,10 +23,29 @@ public class BalloonInputControl : MonoBehaviour {
     [SerializeField]
     private AudioSource BackwardSFX;
 
+    [SerializeField]
+    private ParticleSystem LiftParticles;
+    [SerializeField]
+    private ParticleSystem DragParticles;
+    [SerializeField]
+    private ParticleSystem ForwardParticles;
+    [SerializeField]
+    private ParticleSystem BackwardParticles;
+
+    Dictionary<AudioSource, float> sfxDests = new Dictionary<AudioSource, float>();
+
 	// Use this for initialization
 	void Start () {
-		
+        sfxDests [LiftSFX] = 0f;
+        sfxDests [DragSFX] = 0f;
+        sfxDests [ForwardSFX] = 0f;
+        sfxDests [BackwardSFX] = 0f;
 	}
+
+    void FixedUpdate()
+    {
+        LerpSounds ();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -78,11 +97,11 @@ public class BalloonInputControl : MonoBehaviour {
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * lift);
-        StartFX (LiftSFX);
+        StartFX (LiftSFX, LiftParticles);
     }
 
     void NoLift() {
-        StopFX (LiftSFX);
+        StopFX (LiftSFX, LiftParticles);
     }
 
     void Drag() {
@@ -91,11 +110,11 @@ public class BalloonInputControl : MonoBehaviour {
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
         GetComponent<Rigidbody2D> ().AddForce (Vector2.down * drag);
-        StartFX (DragSFX);
+        StartFX (DragSFX, DragParticles);
     }
 
     void NoDrag() {
-        StopFX (DragSFX);
+        StopFX (DragSFX, DragParticles);
     }
 
     void Forward() {
@@ -104,11 +123,11 @@ public class BalloonInputControl : MonoBehaviour {
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
         GetComponent<Rigidbody2D> ().AddForce (Vector2.right * forward);
-        StartFX (ForwardSFX);
+        StartFX (ForwardSFX, ForwardParticles);
     }
 
     void NoForward() {
-        StopFX (ForwardSFX);
+        StopFX (ForwardSFX, ForwardParticles);
     }
 
     void Backward() {
@@ -117,23 +136,42 @@ public class BalloonInputControl : MonoBehaviour {
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
         GetComponent<Rigidbody2D> ().AddForce (Vector2.left * backward);
-        StartFX (BackwardSFX);
+        StartFX (BackwardSFX, BackwardParticles);
     }
 
     void NoBackward() {
-        StopFX (BackwardSFX);
+        StopFX (BackwardSFX, BackwardParticles);
     }
 
-    void StartFX(AudioSource source)
+    void StartFX(AudioSource source, ParticleSystem ps)
     {
         if (source) {
-            source.volume = 1f;
+            LerpSound (source, 1f);
+        }
+        if (ps) {
+            ps.gameObject.SetActive(true);
         }
     }
-    void StopFX(AudioSource source)
+    void StopFX(AudioSource source, ParticleSystem ps)
     {
-        if (source)
-            source.volume = 0f;
+        if (source) {
+            LerpSound (source, 0f);
+        }
+
+        if (ps) {
+            ps.gameObject.SetActive(false);
+        }
+    }
+
+    void LerpSound(AudioSource source, float dest)
+    {
+        sfxDests[source] = dest;
+    }
+
+    void LerpSounds() {
+        foreach (KeyValuePair<AudioSource, float> kv in sfxDests) {
+            kv.Key.volume = kv.Key.volume + (kv.Value - kv.Key.volume) * .95f;
+        }
     }
 
 	void StartUsingFuel()
