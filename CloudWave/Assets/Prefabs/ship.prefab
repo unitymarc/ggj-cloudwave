@@ -904,7 +904,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfCanaries: 3
-  canaryPrefab: {fileID: 0}
+  canaryPrefab: {fileID: 1862263741571608, guid: 6289cbcef80d2403d9879bf30a27ab91,
+    type: 2}
+  canaries: []
+  xOffsetMin: -6
+  xOffsetMax: -4
+  yOffsetMin: -2
+  yOffsetMax: 2
 --- !u!114 &114608260447203542
 MonoBehaviour:
   m_ObjectHideFlags: 1
