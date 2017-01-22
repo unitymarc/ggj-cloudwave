@@ -364,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402324989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: -3.5, z: 10}
+  m_LocalPosition: {x: 8, y: -4, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 115425663}
@@ -460,7 +460,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 538716343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.08, y: -2.67, z: 7}
+  m_LocalPosition: {x: 8, y: -4, z: 10}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 115425663}
@@ -571,7 +571,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 951608684
+  randomSeed: -938071147
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1560,16 +1560,16 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 2
-          time: 0.014534882
-          value: -0.17073154
-          inSlope: 3.7535284
-          outSlope: 3.7535284
+          time: 0
+          value: 1
+          inSlope: -5.793505
+          outSlope: -5.793505
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: -1
-          inSlope: -3.3560913
-          outSlope: -3.3560913
+          value: 1
+          inSlope: 7.4374413
+          outSlope: 7.4374413
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -3206,7 +3206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 010139de58ac549d4a77803b238e65a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3b6dd9e3a1b541959d4a5beb6f1d5a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3350,7 +3350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4604016450205344, guid: a137b412e10b44eeaa1de0f2260ff085, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4604016450205344, guid: a137b412e10b44eeaa1de0f2260ff085, type: 2}
       propertyPath: m_LocalRotation.x
