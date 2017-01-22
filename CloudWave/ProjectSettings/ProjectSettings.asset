@@ -464,7 +464,7 @@ PlayerSettings:
     Collab: 0
     ErrorHub: 0
     Hub: 0
-    UNet: 0
+    UNet: 1
   cloudProjectId: 61bc615f-9bf4-460c-bfeb-bf75dbfef35b
   projectName: CloudWave
   organizationId: marc_tanenbaum
