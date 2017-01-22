@@ -21,5 +21,12 @@ public class CanaryMotion : MonoBehaviour {
         GetComponent<Animator> ().SetTrigger ("Dead");
         audio.Play ();
         GetComponent<Rigidbody2D> ().gravityScale = 1f;
+		StartCoroutine("StartDestroyTimer");
     }
+
+	IEnumerator StartDestroyTimer()
+	{
+		yield return new WaitForSeconds(5f);
+		GameObject.Destroy(this.gameObject);
+	}
 }
