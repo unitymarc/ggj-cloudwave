@@ -16,6 +16,8 @@ public class SmokeCollision : MonoBehaviour
 	[SerializeField]
 	private int poisonDamagePerTick = 1;
 
+	private bool isPoisoning = false;
+
     void OnEnable()
     {
         ps = GetComponent<ParticleSystem>();
@@ -34,7 +36,11 @@ public class SmokeCollision : MonoBehaviour
 
 		if (numInside > 0)
 		{
-			StartCoroutine("StartPoison");
+			if (!isPoisoning)
+			{
+				StartCoroutine("StartPoison");
+				isPoisoning = true;
+			}
 		}
 		else {
 			StopCoroutine("StartPoison");
@@ -44,8 +50,9 @@ public class SmokeCollision : MonoBehaviour
 
 	IEnumerator StartPoison()
 	{
+		yield return new WaitForSeconds(poisonTickRate / 2);
 		ps.trigger.GetCollider(0).gameObject.GetComponent<ShipHealthController>().RemoveCanary();
-		yield return new WaitForSeconds(poisonTickRate);
+		yield return new WaitForSeconds(poisonTickRate / 2);
 		StartCoroutine("StartPoison");
 	}
 
