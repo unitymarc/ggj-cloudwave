@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4318349429023738}
   - component: {fileID: 212562860789372210}
   - component: {fileID: 50886162931056490}
-  - component: {fileID: 114022043040690694}
   - component: {fileID: 60132183633359458}
   - component: {fileID: 114558733711692600}
+  - component: {fileID: 114507953054500436}
   m_Layer: 0
-  m_Name: Ship
+  m_Name: ship
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -195,7 +195,7 @@ PolygonCollider2D:
       - {x: 1.8199999, y: -1.81}
       - {x: 1.89, y: -1.61}
       - {x: 1.92, y: -1.43}
---- !u!114 &114022043040690694
+--- !u!114 &114507953054500436
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -206,6 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a484fb151c8446478bca1bd35285636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lift: 15
+  drag: 15
+  forward: 15
+  backward: 15
 --- !u!114 &114558733711692600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3fb157f86109e974b8c72f9852838bdc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96967f14ebeb442d28b94ac18af1127a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
