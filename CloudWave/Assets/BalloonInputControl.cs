@@ -12,7 +12,9 @@ public class BalloonInputControl : MonoBehaviour {
     public float drag;
     public float forward;
     public float backward;
-    public float maxspeed;
+    public float maxspeed = 1;
+    public float dragValue = 1;
+
 
     [SerializeField]
     private AudioSource LiftSFX;
@@ -54,11 +56,18 @@ public class BalloonInputControl : MonoBehaviour {
 
     void FixedUpdate()
     {
+        
         LerpSounds ();
+        Vector2 v2 = GetComponent<Rigidbody2D>().velocity;
+        v2.x *= dragValue;
+        GetComponent<Rigidbody2D>().velocity = v2;
+
+
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		if (musicFuel > 0)
 		{
 			if (Input.GetAxis("Lift") > 0f && Input.GetAxis("Lift") < 10f)
