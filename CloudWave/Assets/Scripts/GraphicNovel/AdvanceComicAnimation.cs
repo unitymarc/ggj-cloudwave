@@ -9,6 +9,7 @@ public class AdvanceComicAnimation : MonoBehaviour {
     public BoxCollider2D boxCollider;
     public Animator fadeScreenAnimator;
     public AudioSource music;
+    public AudioSource clickSound;
 
     bool buttonCanShow = true;
     bool fading = false;
@@ -48,6 +49,7 @@ public class AdvanceComicAnimation : MonoBehaviour {
 
     void OnMouseDown()
     {
+        clickSound.Play ();
         AnimatorStateInfo stateInfo = graphicNovelAnimator.GetCurrentAnimatorStateInfo (0);
         if (stateInfo.IsName ("GraphicNovel3")) {
             TriggerFadeOut ();
