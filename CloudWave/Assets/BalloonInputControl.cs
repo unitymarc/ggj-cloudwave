@@ -34,6 +34,17 @@ public class BalloonInputControl : MonoBehaviour {
     [SerializeField]
     private ParticleSystem BackwardParticles;
 
+    [SerializeField]
+    private GameObject LiftGO;
+    [SerializeField]
+    private GameObject DragGO;
+    [SerializeField]
+    private GameObject ForwardGO;
+    [SerializeField]
+    private GameObject BackwardGO;
+
+    List<GameObject> instrumentAnimList = new List<GameObject>();
+
     Dictionary<AudioSource, float> sfxDests = new Dictionary<AudioSource, float>();
 
 	public int GetFuel()
@@ -52,18 +63,16 @@ public class BalloonInputControl : MonoBehaviour {
         sfxDests [DragSFX] = 0f;
         sfxDests [ForwardSFX] = 0f;
         sfxDests [BackwardSFX] = 0f;
+
+        InvokeRepeating ("AnimateInstruments", .1f, .05f);
 	}
 
     void FixedUpdate()
     {
-        
         LerpSounds ();
         Vector2 v2 = GetComponent<Rigidbody2D>().velocity;
         v2.x *= dragValue;
         GetComponent<Rigidbody2D>().velocity = v2;
-
-
-
     }
 
     // Update is called once per frame
@@ -116,11 +125,11 @@ public class BalloonInputControl : MonoBehaviour {
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
         GetComponent<Rigidbody2D> ().AddForce (Vector2.up * lift);
-        StartFX (LiftSFX, LiftParticles);
+        StartFX (LiftSFX, LiftParticles, LiftGO);
     }
 
     void NoLift() {
-        StopFX (LiftSFX, LiftParticles);
+        StopFX (LiftSFX, LiftParticles, LiftGO);
     }
 
     void Drag() {
@@ -129,11 +138,11 @@ public class BalloonInputControl : MonoBehaviour {
 			InvokeRepeating("StartUsingFuel", 0f, musicFuelUsageRate);
 		}
         GetComponent<Rigidbody2D> ().AddForce (Vector2.down * drag);
-        StartFX (DragSFX, DragParticles);
+        StartFX (DragSFX, DragParticles, DragGO);
     }
 
     void NoDrag() {
-        StopFX (DragSFX, DragParticles);
+        StopFX (DragSFX, DragParticles, DragGO);
     }
 
     void Forward() {
@@ -150,11 +159,11 @@ public class BalloonInputControl : MonoBehaviour {
         }
         else
             currentVelocity.x = maxspeed;
-        StartFX (ForwardSFX, ForwardParticles);
+        StartFX (ForwardSFX, ForwardParticles, ForwardGO);
     }
 
     void NoForward() {
-        StopFX (ForwardSFX, ForwardParticles);
+        StopFX (ForwardSFX, ForwardParticles, ForwardGO);
     }
 
     void Backward() {
@@ -170,15 +179,19 @@ public class BalloonInputControl : MonoBehaviour {
         }
         else
             currentVelocity.x = -maxspeed; 
-        StartFX (BackwardSFX, BackwardParticles);
+        StartFX (BackwardSFX, BackwardParticles, BackwardGO);
     }
 
     void NoBackward() {
-        StopFX (BackwardSFX, BackwardParticles);
+        StopFX (BackwardSFX, BackwardParticles, BackwardGO);
     }
 
-    void StartFX(AudioSource source, ParticleSystem ps)
+    void StartFX(AudioSource source, ParticleSystem ps, GameObject go)
     {
+        if (go && !instrumentAnimList.Contains (go)) {
+            instrumentAnimList.Add (go);
+        }
+
         if (source) {
             LerpSound (source, 1f);
         }
@@ -186,8 +199,13 @@ public class BalloonInputControl : MonoBehaviour {
             ps.gameObject.SetActive(true);
         }
     }
-    void StopFX(AudioSource source, ParticleSystem ps)
+    void StopFX(AudioSource source, ParticleSystem ps, GameObject go)
     {
+        if (go && instrumentAnimList.Contains (go)) {
+            go.SetActive (false);
+            instrumentAnimList.Remove (go);
+        }
+
         if (source) {
             LerpSound (source, 0f);
         }
@@ -217,4 +235,15 @@ public class BalloonInputControl : MonoBehaviour {
 	{
 		musicFuel += amountToAdd;
 	}
+
+    void AnimateInstruments()
+    {
+        foreach (GameObject go in instrumentAnimList) {
+            if (go.activeSelf) {
+                go.SetActive (false);
+            } else {
+                go.SetActive (true);
+            }
+        }
+    }
 }

@@ -42,6 +42,7 @@ public class PoisonScript : MonoBehaviour {
 			if(player == null) {
 				player = col.gameObject.GetComponent<ShipHealthController>();
 				StartCoroutine("StartPoison");
+                GlobalAudioManager.Instance.PlaySound ("Poison");
 			}
 		}
 	}
@@ -51,6 +52,7 @@ public class PoisonScript : MonoBehaviour {
 			if (player != null) {
 				player = null;
 				StopCoroutine("StartPoison");
+                GlobalAudioManager.Instance.StopSound ("Poison");
 			}
 		}
 	}
