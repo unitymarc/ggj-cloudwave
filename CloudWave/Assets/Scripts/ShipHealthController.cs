@@ -103,6 +103,7 @@ public class ShipHealthController : MonoBehaviour {
 			KillCanary();
 		}
 		GameManager.instance.PlayerDied();
+        GlobalAudioManager.Instance.PlaySound ("Crash");
 
 		//GameObject.Destroy(gameObject);
 	}
