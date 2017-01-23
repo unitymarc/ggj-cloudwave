@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 82936823996005924}
   - component: {fileID: 82320813290562028}
   - component: {fileID: 82653649387607692}
-  - component: {fileID: 114608260447203542}
+  - component: {fileID: 114489850057433140}
   m_Layer: 0
   m_Name: ship
   m_TagString: Player
@@ -253,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410900560965764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.74, y: 2.64, z: 0}
+  m_LocalPosition: {x: -4.05, y: 2.64, z: 0}
   m_LocalScale: {x: 0.7361076, y: 0.77750254, z: 1}
   m_Children:
   - {fileID: 4489946712830708}
@@ -892,6 +892,19 @@ MonoBehaviour:
   DragGO: {fileID: 1148201259065178}
   ForwardGO: {fileID: 1599795878056396}
   BackwardGO: {fileID: 1488316911841204}
+--- !u!114 &114489850057433140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410900560965764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6895a3fea3c044a719a4964ef69f72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleTime: 2.5
+  cycleMagnitude: 6
 --- !u!114 &114558733711692600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -911,19 +924,6 @@ MonoBehaviour:
   xOffsetMax: -4
   yOffsetMin: -2
   yOffsetMax: 2
---- !u!114 &114608260447203542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410900560965764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6895a3fea3c044a719a4964ef69f72ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cycleTime: 2.5
-  cycleMagnitude: 6
 --- !u!198 &198064875651934660
 ParticleSystem:
   m_ObjectHideFlags: 1
