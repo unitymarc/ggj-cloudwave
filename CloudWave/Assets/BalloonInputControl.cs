@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BalloonInputControl : MonoBehaviour {
 	[SerializeField]
-	private int musicFuel = 10;
+	public int musicFuel = 10;
 	[SerializeField]
 	private float musicFuelUsageRate = 1f;
 
